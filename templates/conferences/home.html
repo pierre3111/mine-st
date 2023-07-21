@@ -1,0 +1,21 @@
+<!-- home.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+  <!-- Your home page content here -->
+
+  <!-- Register button -->
+  <a href="{% url 'registration' %}" id="register-button"><button>Register</abutton></a>
+
+  <h1>Welcome to the Conference Management System</h1>
+  {% for conference in conferences %}
+      <div class="conference">
+          <h2><a href="{% url 'conference_detail' conference.id %}">{{ conference.name }}</a></h2>
+          <p>{{ conference.category }}</p>
+          <p>Date: {{ conference.date }}</p>
+          <p>Venue: {{ conference.venue }}</p>
+          <p>Theme: {{ conference.theme }}</p>
+      </div>
+  {% endfor %}
+{% endblock %}
+

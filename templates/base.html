@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="{% url 'home' %}">HOME</a></li>
+                <li><a href="{% url 'about' %}">ABOUT</a></li>
+                <li><a href="{% url 'speakers' %}">SPEAKERS</a></li>
+                <li><a href="{% url 'schedule' %}">SCHEDULE</a></li>
+            </ul>
+        </nav>
+       
+    </header>
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+    <script src="{% static 'js/registration.js' %}"></script>
+
+</body>
+<div class="registration-btn">
+    <a href="{% url 'registration' %}">sign up</a>
+</div>
+</html>

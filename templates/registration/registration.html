@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block title %}Registration{% endblock %}
+
+{% block content %}
+
+{% load static %}
+  <h1>Registration Form</h1>
+  <form id="registration-form">
+    {% csrf_token %}
+    <label for="name">Name:</label>
+    <input type="text" name="name" id="name" required>
+
+    <label for="email">Email:</label>
+    <input type="email" name="email" id="email" required>
+
+    <label for="job-role">Job Role:</label>
+    <select name="job-role" id="job-role" required>
+      <option value="" selected disabled>Select Job Role</option>
+      <option value="full-stack">Full Stack</option>
+      <option value="backend">Backend</option>
+      <option value="frontend">Frontend</option>
+      <option value="designer">Designer</option>
+      <option value="student">Student</option>
+    </select>
+
+    <label>Topics Interest:</label>
+    <div>
+      <input type="checkbox" name="topics-interest" id="js-frameworks" value="JavaScript Frameworks">
+      <label for="js-frameworks">JavaScript Frameworks</label>
+    </div>
+    <div>
+      <input type="checkbox" name="topics-interest" id="js-libraries" value="JavaScript Libraries">
+      <label for="js-libraries">JavaScript Libraries</label>
+    </div>
+    <div>
+      <input type="checkbox" name="topics-interest" id="node-js" value="Node.js">
+      <label for="node-js">Node.js</label>
+    </div>
+    <div>
+      <input type="checkbox" name="topics-interest" id="build-tools" value="Build Tools">
+      <label for="build-tools">Build Tools</label>
+    </div>
+
+    <label for="card-number">Card Number:</label>
+    <input type="text" name="card-number" id="card-number" required>
+
+    <label for="zip-code">Zip Code:</label>
+    <input type="text" name="zip-code" id="zip-code" required>
+
+    <label for="cvv">CVV:</label>
+    <input type="text" name="cvv" id="cvv" required>
+
+    <label for="expiration-date">Expiration Date:</label>
+    <input type="text" name="expiration-date" id="expiration-date" required>
+
+    <button type="submit">Register</button>
+  </form>
+
+  <script src="{% static 'js/registration.js' %}"></script>
+{% endblock %}
+

@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}Conference Detail{% endblock %}
+
+{% block content %}
+<h1>{{ conference.name }}</h1>
+<p>Category: {{ conference.category }}</p>
+<p>Date: {{ conference.date }}</p>
+<p>Venue: {{ conference.venue }}</p>
+<p>Theme: {{ conference.theme }}</p>
+
+<h2>Speakers</h2>
+<ul>
+    {% for speaker in conference.speaker_set.all %}
+        <li>
+            <h3>{{ speaker.name }}</h3>
+            <p>Bio: {{ speaker.bio }}</p>
+            <p>Contact Info: {{ speaker.contact_info }}</p>
+            <!-- You can add more speaker details here -->
+        </li>
+    {% endfor %}
+</ul>
+
+<!-- Add more conference details here if needed -->
+{% endblock %}
